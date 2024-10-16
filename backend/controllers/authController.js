@@ -13,7 +13,7 @@ export const handleLogin = async(req, res)=>{
             }else{
                 if(result){
                     const token = jwt.sign({user: user.username, userId: user._id}, config.jwtSecret);
-                    res.cookie('token', token, { httpOnly: true });
+                    res.cookie('token', token, { httpOnly: true, secure: true });
                     res.json({message: "log in success" })
                 }else{
                     res.json({
