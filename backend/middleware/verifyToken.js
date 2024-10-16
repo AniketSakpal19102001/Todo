@@ -3,6 +3,7 @@ import config from "../config/config.js";
 const  verifyToken = (req, res, next)=>{
     const token = req.cookies.token;
     console.log(token);
+    console.log(req.cookies);
     if (!token) {
         res.sendStatus(401)
     }else{
